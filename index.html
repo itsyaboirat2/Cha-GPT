@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cha-GPT, a playful chat page that always knows what to say."
+    />
+    <title>Cha-GPT</title>
+    <link rel="icon" href="assets/cha-mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Conversations">
+        <div class="sidebar-top">
+          <div class="brand-row">
+            <a class="brand" href="#" aria-label="Cha-GPT home">
+              <img class="brand-logo" src="assets/cha-mark.svg" alt="" />
+              <span>Cha-GPT</span>
+            </a>
+            <button class="icon-button sidebar-close" id="closeSidebar" type="button" aria-label="Close sidebar" title="Close">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" />
+              </svg>
+            </button>
+          </div>
+
+          <button class="new-chat-button" id="newChatButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            <span>New chat</span>
+          </button>
+        </div>
+
+        <nav class="history" aria-label="Chat history">
+          <p class="history-label">Today</p>
+          <button class="history-item is-active" type="button">
+            <span class="history-dot" aria-hidden="true"></span>
+            <span id="historyTitle">Fresh chat</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Maw model ready</span>
+        </div>
+      </aside>
+
+      <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+      <main class="chat-panel">
+        <header class="topbar">
+          <button class="icon-button menu-button" id="openSidebar" type="button" aria-label="Open sidebar" title="Menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+
+          <button class="model-pill" type="button" aria-label="Current model">
+            <span>Cha-GPT</span>
+            <span class="model-tag">Maw</span>
+          </button>
+
+          <div class="topbar-actions">
+            <button class="icon-button" id="clearChatButton" type="button" aria-label="Clear chat" title="Clear chat">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 4h6M5 7h14M10 11v6M14 11v6M7 7l1 13h8l1-13" />
+              </svg>
+            </button>
+            <button class="icon-button" id="themeButton" type="button" aria-label="Toggle theme" title="Theme">
+              <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 14.4A7.8 7.8 0 0 1 9.6 4 8.4 8.4 0 1 0 20 14.4Z" />
+              </svg>
+              <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6" />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="chat-log" id="chatLog" aria-live="polite" aria-label="Conversation">
+          <div class="empty-state" id="emptyState">
+            <img class="empty-logo" src="assets/cha-mark.svg" alt="" />
+            <h1>Cha-GPT</h1>
+            <div class="prompt-grid" aria-label="Prompts">
+              <button class="prompt-chip" type="button">Tell me something sweet</button>
+              <button class="prompt-chip" type="button">Plan a perfect date night</button>
+              <button class="prompt-chip" type="button">Write a dramatic apology</button>
+              <button class="prompt-chip" type="button">What should I make for dinner?</button>
+            </div>
+          </div>
+        </section>
+
+        <footer class="composer-zone">
+          <form class="composer" id="chatForm">
+            <textarea
+              id="messageInput"
+              name="message"
+              rows="1"
+              autocomplete="off"
+              spellcheck="true"
+              placeholder="Message Cha-GPT"
+              aria-label="Message Cha-GPT"
+            ></textarea>
+            <button class="send-button" id="sendButton" type="submit" aria-label="Send message" title="Send" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 19V5M6 11l6-6 6 6" />
+              </svg>
+            </button>
+          </form>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
